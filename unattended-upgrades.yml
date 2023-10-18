@@ -10,7 +10,7 @@
 
   tasks:
     - name: End play if not on Ubuntu
-      ansible.builtin.meta: end_play
+      meta: end_play
       when: ansible_distribution != "Ubuntu"
 
   roles:

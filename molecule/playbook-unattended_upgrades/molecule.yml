@@ -8,7 +8,7 @@ driver:
 #     ignore-errors: True
 #     role-file: molecule/requirements.yml
 platforms:
-  - name: src-ubuntu20
+  - name: molecule-src-ubuntu_focal
     image: src-ubuntu_focal
     pre_build_image: true
 provisioner:

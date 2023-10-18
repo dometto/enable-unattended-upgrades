@@ -1,0 +1,19 @@
+---
+- name: Copy unattended upgrades script
+  ansible.builtin.copy:
+    src: enable_unattended_upgrades.sh
+    dest: /sbin/enable_unattended_upgrades.sh
+    owner: root
+    group: root
+    mode: "0755"
+    
+- name: Enable unattended upgrades after cloud-init is done
+  ansible.builtin.shell: nohup /sbin/enable_unattended_upgrades.sh < /dev/null >/dev/null 2>&1 &
+
+- name: Read log output
+  ansible.builtin.command: cat /var/log/post-cloud-init.log
+  register: log_output
+
+- name: Debug
+  ansible.builtin.debug:
+    var: log_output

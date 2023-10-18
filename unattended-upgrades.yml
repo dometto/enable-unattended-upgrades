@@ -13,5 +13,12 @@
       meta: end_play
       when: ansible_distribution != "Ubuntu"
 
-  roles:
-    - unattended_upgrades
+    - name: Include the role
+      include_role:
+        name: unattended_upgrades
+
+    - name: Install gnome as test
+      package:
+        name: gnome
+        state: present
+        update_cache: true

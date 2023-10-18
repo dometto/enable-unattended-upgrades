@@ -5,7 +5,7 @@
 # This Playbook runs a script that waits until cloud-init is done, then enable unattended upgrades
 
 - name: Enable unattended security upgrades on Ubuntu
-  hosts: all
+  hosts: localhost
   gather_facts: true
 
   tasks:

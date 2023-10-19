@@ -1,13 +1,5 @@
 ---
 
-- name: Get cloud-init status
-  command: cloud-init status
-  register: cloud_init_status
-
-- name: Debug
-  ansible.builtin.debug:
-    var: cloud_init_status.stdout
-
 - name: Copy unattended upgrades script
   ansible.builtin.copy:
     src: enable_unattended_upgrades.sh

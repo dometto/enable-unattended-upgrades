@@ -1,7 +1,7 @@
 #!/bin/bash
 LOG=/var/log/post-cloud-init.log
 
-echo "Running cloud-init status --wait..." >> $LOG
+echo "$(date -R): Running cloud-init status --wait..." >> $LOG
 # Block until cloud-init completes
 cloud-init status --wait > /dev/null 2>&1
 [ $? -ne 0 ] && echo 'Cloud-init failed' >> $LOG && exit 1

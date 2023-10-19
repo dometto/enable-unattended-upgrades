@@ -25,10 +25,11 @@
       include_role:
         name: unattended_upgrades
 
-    - name: Run updates immediately
-      shell: nohup systemctl start apt-daily-upgrade < /dev/null >/dev/null 2>&1 &
+    # Create a dependency conflict!
+    # - name: Run updates immediately
+    #   shell: nohup systemctl start apt-daily-upgrade < /dev/null >/dev/null 2>&1 &
 
-    - name: Install big package for testing
-      package:
-        name: gnome
-        state: present
+    # - name: Install big package for testing
+    #   package:
+    #     name: gnome
+    #     state: present
